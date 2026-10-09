@@ -155,5 +155,22 @@ footer{padding:44px 0 50px;}
 .article-page .tag{margin-bottom:20px;}
 .article-page h1{font-family:'Source Serif 4',serif;font-weight:600;font-size:clamp(30px,4.5vw,44px);line-height:1.16;max-width:780px;margin-bottom:20px;}
 .article-page .dek{color:var(--gray);font-size:18px;line-height:1.6;max-width:700px;margin-bottom:24px;}
-.article-body{max-width:700px;font-size:17px;line-height:1.75;color:#E4E2EA;white-space:pre-line;margin-top:32px;}
+.article-body{max-width:700px;font-size:17px;line-height:1.75;color:#E4E2EA;margin-top:36px;}
+.article-body > p{margin:0 0 22px;}
+.article-body > p:first-child{font-size:19px;line-height:1.7;color:#F4F2F8;}
+.article-body h2{font-family:'Source Serif 4',serif;font-weight:600;font-size:clamp(23px,3vw,28px);line-height:1.25;color:#fff;margin:48px 0 16px;padding-top:24px;border-top:1px solid var(--line);}
+.article-body h3{font-family:'JetBrains Mono',monospace;font-weight:500;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--green);margin:52px 0 14px;padding-top:22px;border-top:1px solid var(--line);}
+.article-body strong{color:#fff;font-weight:600;}
+.article-body em{font-style:italic;}
+.article-body a{color:var(--green);text-decoration:underline;text-underline-offset:3px;}
+.article-body ol,.article-body ul{margin:8px 0 28px;padding:0;list-style:none;}
+.article-body ol{counter-reset:passo;}
+.article-body ol li{counter-increment:passo;position:relative;padding:16px 0 16px 52px;border-bottom:1px solid var(--line);}
+.article-body ol li:last-child{border-bottom:none;}
+.article-body ol li::before{content:counter(passo,decimal-leading-zero);position:absolute;left:0;top:16px;font-family:'JetBrains Mono',monospace;font-size:14px;font-weight:500;color:var(--green);}
+.article-body ul li{position:relative;padding:6px 0 6px 22px;}
+.article-body ul li::before{content:"";position:absolute;left:2px;top:17px;width:7px;height:7px;border-radius:50%;background:var(--green);}
+.article-body h3 + ul li{font-size:15px;color:var(--gray);padding:4px 0 4px 22px;}
+.article-body h3 + ul li::before{top:13px;width:5px;height:5px;background:var(--gray-2);}
+@media (max-width:620px){.article-body{font-size:16px;}.article-body ol li{padding-left:42px;}}
 .empty-state{padding:80px 6vw;text-align:center;color:var(--gray);font-family:'JetBrains Mono',monospace;}

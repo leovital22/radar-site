@@ -1,5 +1,6 @@
 import { supabase } from '@/lib/supabaseClient';
 import { notFound } from 'next/navigation';
+import { renderMarkdown } from '@/lib/markdown';
 
 const tagClass = {
   Mercado: 'tag-mercado',
@@ -46,7 +47,7 @@ export default async function ArtigoPage({ params }) {
         ></div>
       )}
 
-      <div className="article-body">{artigo.conteudo}</div>
+      <div className="article-body">{renderMarkdown(artigo.conteudo)}</div>
 
       {artigo.link_video && (
         <p style={{ marginTop: '32px' }}>
