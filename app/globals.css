@@ -44,8 +44,12 @@ nav.main-nav a:hover{color:var(--white);}
 .ticker-tag{background:var(--green);color:var(--bg);font-weight:700;padding:7px 6vw;letter-spacing:1.5px;}
 @media (min-width:1300px){.ticker-tag{padding:7px 40px;}}
 .ticker-scroll{border-top:1px solid var(--line);overflow:hidden;}
-.ticker-track{display:flex;gap:46px;padding:9px 20px;color:var(--gray);white-space:nowrap;animation:ticker 26s linear infinite;}
+.ticker-track{display:flex;gap:46px;padding:9px 20px;color:var(--gray);white-space:nowrap;animation:ticker 40s linear infinite;}
 .ticker-track span b{color:var(--white);font-weight:500;}
+.ticker-track a{color:var(--gray);text-decoration:none;transition:color .2s;}
+.ticker-track a b{color:var(--green);font-weight:500;margin-right:6px;}
+.ticker-track a:hover{color:var(--white);}
+.ticker-track:hover{animation-play-state:paused;}
 @keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 @media (prefers-reduced-motion:reduce){.ticker-track{animation:none;}}
 

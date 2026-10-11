@@ -1,4 +1,7 @@
 import './globals.css';
+import Ticker from './Ticker';
+
+export const revalidate = 60;
 
 export const metadata = {
   title: 'Radar — o que move o mercado',
@@ -35,21 +38,7 @@ export default function RootLayout({ children }) {
               <a href="/artigos">Todas as matérias</a>
             </nav>
           </div>
-          <div className="ticker-row">
-            <div className="ticker-tag">NO RADAR</div>
-            <div className="ticker-scroll">
-              <div className="ticker-track">
-                <span><b>Meta</b> reajustou o Ads em 12,15% no Brasil desde janeiro</span>
-                <span><b>Maranhão</b> lidera crescimento de e-commerce de PMEs no país</span>
-                <span>Google muda regras de lance automático em agosto</span>
-                <span><b>ANPD</b> vira agência reguladora e mira em cookies</span>
-                <span><b>Meta</b> reajustou o Ads em 12,15% no Brasil desde janeiro</span>
-                <span><b>Maranhão</b> lidera crescimento de e-commerce de PMEs no país</span>
-                <span>Google muda regras de lance automático em agosto</span>
-                <span><b>ANPD</b> vira agência reguladora e mira em cookies</span>
-              </div>
-            </div>
-          </div>
+          <Ticker />
         </div>
 
         {children}
