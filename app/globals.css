@@ -178,3 +178,9 @@ footer{padding:44px 0 50px;}
 .article-body h3 + ul li::before{top:13px;width:5px;height:5px;background:var(--gray-2);}
 @media (max-width:620px){.article-body{font-size:16px;}.article-body ol li{padding-left:42px;}}
 .empty-state{padding:80px 6vw;text-align:center;color:var(--gray);font-family:'JetBrains Mono',monospace;}
+
+/* Capa do artigo + crédito da foto */
+.article-cover{margin:32px 0 0;}
+.photo-credit{margin-top:8px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.3px;color:var(--gray);text-align:right;}
+.photo-credit a{color:inherit;text-decoration:underline;text-underline-offset:2px;}
+.photo-credit a:hover{color:var(--green);}

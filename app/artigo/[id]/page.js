@@ -41,10 +41,32 @@ export default async function ArtigoPage({ params }) {
       </div>
 
       {artigo.imagem_url && (
-        <div
-          className="feature-big-thumb"
-          style={{ backgroundImage: `url(${artigo.imagem_url})`, marginTop: '32px' }}
-        ></div>
+        <figure className="article-cover">
+          <div
+            className="feature-big-thumb"
+            style={{ backgroundImage: `url(${artigo.imagem_url})`, marginBottom: 0 }}
+          ></div>
+          {artigo.imagem_autor && (
+            <figcaption className="photo-credit">
+              Foto:{' '}
+              {artigo.imagem_autor_link ? (
+                <a href={artigo.imagem_autor_link} target="_blank" rel="noopener noreferrer">
+                  {artigo.imagem_autor}
+                </a>
+              ) : (
+                artigo.imagem_autor
+              )}{' '}
+              /{' '}
+              <a
+                href="https://unsplash.com/?utm_source=radar_blog&utm_medium=referral"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Unsplash
+              </a>
+            </figcaption>
+          )}
+        </figure>
       )}
 
       <div className="article-body">{renderMarkdown(artigo.conteudo)}</div>
