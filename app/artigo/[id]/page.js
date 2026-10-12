@@ -1,6 +1,22 @@
 import { supabase } from '@/lib/supabaseClient';
 import { notFound } from 'next/navigation';
 import { renderMarkdown } from '@/lib/markdown';
+import Anuncio from '../../Anuncio';
+
+// Coloca o anúncio "Meio do artigo" depois do 2º parágrafo (ou no fim, se o texto for curto).
+function comAnuncioNoMeio(blocos) {
+  const lista = Array.isArray(blocos) ? [...blocos] : [];
+  let paragrafos = 0;
+  let pos = lista.length;
+  for (let i = 0; i < lista.length; i++) {
+    if (lista[i] && lista[i].type === 'p') {
+      paragrafos++;
+      if (paragrafos === 2) { pos = i + 1; break; }
+    }
+  }
+  lista.splice(pos, 0, <Anuncio key="anuncio-meio" posicao="artigo-meio" />);
+  return lista;
+}
 
 const tagClass = {
   Mercado: 'tag-mercado',
@@ -69,7 +85,11 @@ export default async function ArtigoPage({ params }) {
         </figure>
       )}
 
-      <div className="article-body">{renderMarkdown(artigo.conteudo)}</div>
+      <div className="article-body">{comAnuncioNoMeio(renderMarkdown(artigo.conteudo))}</div>
+
+      <div className="ad-end">
+        <Anuncio posicao="artigo-fim" />
+      </div>
 
       {artigo.link_video && (
         <p style={{ marginTop: '32px' }}>

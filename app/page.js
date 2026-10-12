@@ -1,4 +1,5 @@
 import { supabase } from '@/lib/supabaseClient';
+import Anuncio from './Anuncio';
 
 export const revalidate = 60; // re-busca artigos novos a cada 60s
 
@@ -43,11 +44,16 @@ export default async function HomePage() {
   const listaLateral = artigos.slice(1, 5);
   const emAlta = artigos.slice(0, 3);
   const destaqueGrande = artigos[1] || artigos[0];
-  const destaquesPequenos = artigos.slice(2, 6);
-  const ultimas = artigos.slice(0, 6);
+  const ultimas = artigos.slice(0, 8);
 
   return (
     <>
+      <div className="ad-zone">
+        <div className="wrap">
+          <Anuncio posicao="home-topo" />
+        </div>
+      </div>
+
       <div className="hero">
         {destaque.imagem_url && (
           <img className="hero-photo" src={destaque.imagem_url} alt={destaque.titulo} />
@@ -110,7 +116,7 @@ export default async function HomePage() {
             <h2>Destaques da semana</h2>
             <a href="/artigos">Ver todas →</a>
           </div>
-          <div className="feature-grid">
+          <div className="feature-row">
             <a className="feature-big" href={`/artigo/${destaqueGrande.id}`}>
               <div
                 className="feature-big-thumb"
@@ -122,22 +128,7 @@ export default async function HomePage() {
               <h3>{destaqueGrande.titulo}</h3>
               {destaqueGrande.resumo && <p style={{ color: 'var(--gray)', fontSize: '14px' }}>{destaqueGrande.resumo}</p>}
             </a>
-            {destaquesPequenos.length > 0 && (
-              <div className="feature-small-grid">
-                {destaquesPequenos.map((a) => (
-                  <a className="feature-small" key={a.id} href={`/artigo/${a.id}`}>
-                    <div
-                      className="feature-small-thumb"
-                      style={a.imagem_url ? { backgroundImage: `url(${a.imagem_url})` } : undefined}
-                    ></div>
-                    <span className={`tag ${tagClass[a.categoria] || 'tag-mercado'}`}>
-                      {(a.categoria || '').toUpperCase()}
-                    </span>
-                    <h4>{a.titulo}</h4>
-                  </a>
-                ))}
-              </div>
-            )}
+            <Anuncio posicao="home-lateral" />
           </div>
         </div>
       </div>
