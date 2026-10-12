@@ -5,7 +5,6 @@ import { supabase } from '@/lib/supabaseClient';
 // A tabela "anuncios" no Supabase só deixa o site ver anúncios ativos e dentro do período.
 
 const WHATSAPP = '5599984980343';
-const EMAIL = 'vortexadsinfo@gmail.com';
 
 const formatos = {
   'home-topo': 'banner',
@@ -57,8 +56,7 @@ export default async function Anuncio({ posicao }) {
         rel="noopener noreferrer"
       >
         <strong>Anuncie aqui</strong>
-        <span>Seu negócio na frente de empresários de Imperatriz e região</span>
-        <em>WhatsApp (99) 98498-0343 · {EMAIL}</em>
+        <span className="ad-cta">Quero anunciar</span>
       </a>
     </aside>
   );
